@@ -38,7 +38,7 @@ const generateRunReq = async ({
   const avgSecond = minSecond + maxSecond / 2;
   /** 正态分布，以最短和最长用时的平均值为平均值，以 1/2 区间的 1/3 为标准差 */
   const waitSecond = Math.floor(
-    normalRandom(minSecond + maxSecond / 2, (maxSecond - avgSecond) / 3),
+    normalRandom((3 * minSecond + maxSecond) / 4, (maxSecond - avgSecond) / 4),
   );
   const startTime = new Date();
   const endTime = new Date(Number(startTime) + waitSecond * 1000);
